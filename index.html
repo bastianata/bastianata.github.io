@@ -1,0 +1,1505 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>911爆料八卦网 - 全网热闻,深度爆料 | 八卦风向标</title>
+<meta name="description" content="911爆料八卦网，一站式全网热闻爆料平台，聚焦娱乐八卦、社会热点、明星动态与社区讨论，第一时间为你带来真实、深度的爆料内容与网友热议。">
+<style>
+:root{
+  --bg:#0d0d12;
+  --bg2:#14141c;
+  --card:#1a1a24;
+  --card2:#20202c;
+  --line:#2c2c3a;
+  --txt:#ececf1;
+  --sub:#9a9ab0;
+  --hot:#ff4d6d;
+  --hot2:#ff8a3d;
+  --gold:#ffc857;
+  --cyan:#4dd2ff;
+  --accent:#ff3860;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--txt);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+::selection{background:var(--hot);color:#fff;}
+
+/* ===== 顶部滚动公告条 ===== */
+.ticker-bar{
+  background:linear-gradient(90deg,#ff3860,#ff8a3d);
+  color:#fff;
+  font-size:13px;
+  overflow:hidden;
+  position:relative;
+  height:34px;
+  display:flex;
+  align-items:center;
+}
+.ticker-label{
+  background:rgba(0,0,0,.35);
+  padding:0 14px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  font-weight:700;
+  letter-spacing:1px;
+  white-space:nowrap;
+  flex-shrink:0;
+  position:relative;
+  z-index:2;
+}
+.ticker-track{
+  display:flex;
+  white-space:nowrap;
+  animation:tickerMove 42s linear infinite;
+}
+.ticker-track span{
+  padding:0 40px;
+  opacity:.95;
+}
+.ticker-track span::before{
+  content:"●";
+  margin-right:10px;
+  font-size:8px;
+  vertical-align:middle;
+  opacity:.7;
+}
+@keyframes tickerMove{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+
+/* ===== 导航 ===== */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(13,13,18,.82);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 22px;
+  height:66px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  font-size:20px;
+  letter-spacing:.5px;
+  flex-shrink:0;
+}
+.logo-mark{
+  width:38px;height:38px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--hot),var(--hot2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:900;color:#fff;
+  box-shadow:0 4px 18px rgba(255,77,109,.4);
+  transform:rotate(-4deg);
+}
+.logo-text{background:linear-gradient(90deg,#fff,#ffb3c1);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.nav-links{
+  display:flex;gap:6px;align-items:center;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-links a{
+  padding:8px 14px;
+  border-radius:9px;
+  font-size:14.5px;
+  color:var(--sub);
+  white-space:nowrap;
+  transition:.22s;
+  font-weight:500;
+}
+.nav-links a:hover,.nav-links a.active{
+  color:#fff;
+  background:var(--card2);
+}
+.nav-links a.active{
+  color:var(--hot);
+  background:rgba(255,77,109,.12);
+  font-weight:700;
+}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.search-btn{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--card);
+  border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:.22s;color:var(--sub);
+}
+.search-btn:hover{border-color:var(--hot);color:var(--hot);}
+.btn-hot{
+  padding:9px 18px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--hot),var(--hot2));
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:0 4px 16px rgba(255,77,109,.3);
+  white-space:nowrap;
+}
+.btn-hot:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(255,77,109,.45);}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  padding:70px 22px 60px;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  top:-220px;left:50%;transform:translateX(-50%);
+  width:900px;height:520px;
+  background:radial-gradient(ellipse at center,rgba(255,77,109,.22),transparent 65%);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  bottom:-180px;right:-120px;
+  width:520px;height:520px;
+  background:radial-gradient(circle,rgba(77,210,255,.12),transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1240px;margin:0 auto;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:52px;
+  align-items:center;
+  position:relative;z-index:1;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,77,109,.1);
+  border:1px solid rgba(255,77,109,.32);
+  color:var(--hot);
+  padding:6px 14px;
+  border-radius:99px;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:22px;
+}
+.hero-tag .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--hot);
+  box-shadow:0 0 0 0 rgba(255,77,109,.7);
+  animation:pulse 1.8s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,77,109,.7);}
+  70%{box-shadow:0 0 0 10px rgba(255,77,109,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,77,109,0);}
+}
+h1{
+  font-size:clamp(38px,5.4vw,64px);
+  line-height:1.12;
+  font-weight:900;
+  letter-spacing:-1px;
+  margin-bottom:22px;
+}
+h1 .hl{
+  background:linear-gradient(120deg,var(--hot) 10%,var(--hot2) 55%,var(--gold) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;
+  position:relative;
+}
+.hero-desc{
+  font-size:17px;
+  color:var(--sub);
+  max-width:560px;
+  margin-bottom:32px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px;}
+.btn-primary{
+  padding:14px 30px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--hot),var(--hot2));
+  color:#fff;font-weight:700;font-size:15px;
+  border:none;cursor:pointer;
+  transition:.25s;
+  box-shadow:0 8px 26px rgba(255,77,109,.35);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(255,77,109,.5);}
+.btn-ghost{
+  padding:14px 28px;
+  border-radius:12px;
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--txt);
+  font-weight:600;font-size:15px;
+  cursor:pointer;transition:.25s;
+}
+.btn-ghost:hover{border-color:var(--hot);color:var(--hot);background:rgba(255,77,109,.06);}
+.hero-stats{
+  display:flex;gap:40px;flex-wrap:wrap;
+}
+.stat b{
+  display:block;
+  font-size:30px;
+  font-weight:900;
+  background:linear-gradient(90deg,#fff,#ffb3c1);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  line-height:1.2;
+}
+.stat span{font-size:13.5px;color:var(--sub);}
+
+/* Hero 右侧爆料卡 */
+.hero-card{
+  background:linear-gradient(160deg,var(--card),var(--bg2));
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:26px;
+  position:relative;
+  box-shadow:0 30px 70px rgba(0,0,0,.5);
+  transform:rotate(1.2deg);
+  transition:.4s;
+}
+.hero-card:hover{transform:rotate(0) translateY(-4px);}
+.hero-card-head{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:18px;
+  padding-bottom:14px;
+  border-bottom:1px dashed var(--line);
+}
+.hero-card-head .t{
+  font-weight:800;font-size:16px;display:flex;align-items:center;gap:8px;
+}
+.live-badge{
+  font-size:11px;font-weight:800;color:#fff;
+  background:var(--accent);
+  padding:3px 9px;border-radius:6px;
+  letter-spacing:1px;
+  animation:blink 1.6s infinite;
+}
+@keyframes blink{50%{opacity:.45;}}
+.hero-card-head .time{font-size:12.5px;color:var(--sub);}
+.hero-list li{
+  display:flex;gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid rgba(44,44,58,.6);
+  font-size:14.5px;
+  align-items:flex-start;
+}
+.hero-list li:last-child{border-bottom:none;}
+.hero-list .rank{
+  flex-shrink:0;
+  width:22px;height:22px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;
+  background:var(--card2);color:var(--sub);
+  margin-top:2px;
+}
+.hero-list li:nth-child(1) .rank{background:linear-gradient(135deg,#ff3860,#ff8a3d);color:#fff;}
+.hero-list li:nth-child(2) .rank{background:linear-gradient(135deg,#ff8a3d,#ffc857);color:#1a1a24;}
+.hero-list li:nth-child(3) .rank{background:linear-gradient(135deg,#ffc857,#ffe9a8);color:#1a1a24;}
+.hero-list .txt{
+  flex:1;
+  color:#dcdce8;
+  transition:.2s;
+}
+.hero-list li:hover .txt{color:var(--hot);}
+.tag-mini{
+  font-size:11px;padding:1px 7px;border-radius:5px;
+  background:rgba(255,77,109,.14);color:var(--hot);
+  margin-right:6px;font-weight:700;
+  white-space:nowrap;
+}
+
+/* ===== 区块通用 ===== */
+section{padding:64px 22px;}
+.wrap{max-width:1240px;margin:0 auto;}
+.sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:20px;margin-bottom:38px;flex-wrap:wrap;
+}
+.sec-title{
+  font-size:clamp(26px,3.4vw,36px);
+  font-weight:900;letter-spacing:-.5px;
+  display:flex;align-items:center;gap:14px;
+}
+.sec-title::before{
+  content:"";
+  width:6px;height:30px;border-radius:3px;
+  background:linear-gradient(180deg,var(--hot),var(--hot2));
+  flex-shrink:0;
+}
+.sec-sub{color:var(--sub);font-size:14.5px;margin-top:8px;max-width:520px;}
+.sec-more{
+  font-size:14px;color:var(--hot);font-weight:700;
+  display:flex;align-items:center;gap:6px;
+  transition:.2s;white-space:nowrap;
+}
+.sec-more:hover{gap:12px;}
+
+/* ===== 分类 Tab ===== */
+.tabs{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px;
+}
+.tab{
+  padding:8px 20px;border-radius:99px;
+  background:var(--card);
+  border:1px solid var(--line);
+  color:var(--sub);
+  font-size:14px;font-weight:600;
+  cursor:pointer;transition:.22s;
+}
+.tab:hover{color:#fff;border-color:var(--hot);}
+.tab.active{
+  background:linear-gradient(135deg,var(--hot),var(--hot2));
+  border-color:transparent;color:#fff;
+  box-shadow:0 6px 20px rgba(255,77,109,.3);
+}
+
+/* ===== 爆料网格 ===== */
+.grid-news{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.news-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:.3s;
+  display:flex;flex-direction:column;
+  cursor:pointer;
+}
+.news-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,77,109,.5);
+  box-shadow:0 20px 44px rgba(0,0,0,.5);
+}
+.news-cover{
+  height:172px;
+  position:relative;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  font-size:54px;
+  font-weight:900;
+  color:rgba(255,255,255,.14);
+  letter-spacing:4px;
+}
+.news-cover.c1{background:linear-gradient(135deg,#3a1c2b,#6b2545);}
+.news-cover.c2{background:linear-gradient(135deg,#1c2f3a,#24516b);}
+.news-cover.c3{background:linear-gradient(135deg,#3a331c,#6b5624);}
+.news-cover.c4{background:linear-gradient(135deg,#2a1c3a,#4c246b);}
+.news-cover.c5{background:linear-gradient(135deg,#1c3a2e,#246b4c);}
+.news-cover.c6{background:linear-gradient(135deg,#3a271c,#6b3e24);}
+.news-cover::after{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.14),transparent 60%);
+}
+.badge-type{
+  position:absolute;top:12px;left:12px;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(6px);
+  padding:4px 11px;border-radius:7px;
+  font-size:12px;font-weight:700;color:#fff;
+  z-index:2;
+}
+.badge-hot{
+  position:absolute;top:12px;right:12px;
+  background:var(--accent);
+  padding:4px 10px;border-radius:7px;
+  font-size:11.5px;font-weight:800;color:#fff;
+  z-index:2;letter-spacing:.5px;
+}
+.news-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+.news-body h3{
+  font-size:17.5px;font-weight:800;line-height:1.45;
+  margin-bottom:10px;
+  transition:.2s;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.news-card:hover h3{color:var(--hot);}
+.news-body p{
+  font-size:13.8px;color:var(--sub);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin-bottom:16px;flex:1;
+}
+.news-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12.5px;color:var(--sub);
+  border-top:1px dashed var(--line);
+  padding-top:14px;
+}
+.news-meta .avatar{
+  width:24px;height:24px;border-radius:50%;
+  background:linear-gradient(135deg,var(--hot),var(--hot2));
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:11px;color:#fff;font-weight:800;
+  margin-right:7px;vertical-align:middle;
+}
+.news-meta .author{display:flex;align-items:center;color:#c8c8d8;}
+.news-meta .views{display:flex;align-items:center;gap:5px;}
+
+/* ===== 置顶大爆料 ===== */
+.feature-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:24px;
+}
+.feature-main{
+  background:linear-gradient(150deg,#2b1420,#1a1a24 70%);
+  border:1px solid rgba(255,77,109,.28);
+  border-radius:18px;
+  padding:34px;
+  position:relative;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  min-height:340px;
+  transition:.3s;
+}
+.feature-main:hover{border-color:rgba(255,77,109,.65);}
+.feature-main::before{
+  content:"置顶爆料";
+  position:absolute;top:0;left:0;
+  background:linear-gradient(135deg,var(--hot),var(--hot2));
+  color:#fff;font-size:12.5px;font-weight:800;
+  padding:6px 20px;border-bottom-right-radius:14px;
+  letter-spacing:1px;
+}
+.feature-main .fm-icon{
+  font-size:70px;font-weight:900;
+  color:rgba(255,77,109,.16);
+  position:absolute;right:26px;top:20px;
+  letter-spacing:2px;
+}
+.feature-main h3{
+  font-size:25px;font-weight:900;line-height:1.4;
+  margin-bottom:14px;letter-spacing:-.3px;
+}
+.feature-main p{color:var(--sub);font-size:14.5px;margin-bottom:20px;max-width:520px;}
+.feature-main .fm-meta{display:flex;gap:22px;font-size:13px;color:var(--sub);flex-wrap:wrap;}
+.feature-side{display:flex;flex-direction:column;gap:24px;}
+.feature-mini{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:24px;
+  flex:1;
+  display:flex;flex-direction:column;justify-content:center;
+  transition:.28s;
+  cursor:pointer;
+}
+.feature-mini:hover{transform:translateX(6px);border-color:rgba(255,138,61,.5);}
+.feature-mini .fm-cat{
+  font-size:12px;font-weight:800;color:var(--hot2);
+  letter-spacing:1px;margin-bottom:10px;
+}
+.feature-mini h4{font-size:17px;font-weight:800;line-height:1.5;margin-bottom:10px;}
+.feature-mini:hover h4{color:var(--hot);}
+.feature-mini .fm-time{font-size:12.5px;color:var(--sub);}
+
+/* ===== 侧栏+列表 布局 ===== */
+.split{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:36px;
+  align-items:start;
+}
+.list-item{
+  display:flex;gap:20px;
+  padding:22px 0;
+  border-bottom:1px solid var(--line);
+  transition:.22s;
+  cursor:pointer;
+}
+.list-item:first-child{padding-top:0;}
+.list-item:hover .li-title{color:var(--hot);}
+.li-thumb{
+  width:140px;height:92px;border-radius:12px;
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:30px;font-weight:900;color:rgba(255,255,255,.16);
+  overflow:hidden;
+  position:relative;
+}
+.li-body{flex:1;min-width:0;}
+.li-title{
+  font-size:17.5px;font-weight:800;line-height:1.45;
+  margin-bottom:9px;transition:.2s;
+}
+.li-desc{
+  font-size:13.8px;color:var(--sub);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin-bottom:10px;
+}
+.li-meta{font-size:12.5px;color:var(--sub);display:flex;gap:16px;flex-wrap:wrap;}
+.li-meta .tag{
+  color:var(--hot);background:rgba(255,77,109,.1);
+  padding:1px 9px;border-radius:5px;font-weight:700;
+}
+.li-thumb.t1{background:linear-gradient(135deg,#4a2033,#2a1420);}
+.li-thumb.t2{background:linear-gradient(135deg,#203a4a,#14202a);}
+.li-thumb.t3{background:linear-gradient(135deg,#4a3d20,#2a2414);}
+.li-thumb.t4{background:linear-gradient(135deg,#3a204a,#20142a);}
+
+/* ===== 侧栏 ===== */
+.side-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:24px;
+  margin-bottom:24px;
+}
+.side-title{
+  font-size:16.5px;font-weight:800;
+  display:flex;align-items:center;gap:9px;
+  margin-bottom:20px;
+}
+.side-title .num{
+  font-size:12px;color:var(--sub);font-weight:500;margin-left:auto;
+}
+.hot-rank li{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px 0;border-bottom:1px solid rgba(44,44,58,.55);
+  font-size:14px;cursor:pointer;transition:.2s;
+}
+.hot-rank li:last-child{border-bottom:none;padding-bottom:0;}
+.hot-rank li:hover{color:var(--hot);}
+.hot-rank .r{
+  font-weight:900;font-size:15px;font-style:italic;
+  color:var(--sub);width:20px;flex-shrink:0;
+}
+.hot-rank li:nth-child(1) .r,.hot-rank li:nth-child(2) .r,.hot-rank li:nth-child(3) .r{color:var(--hot);}
+.hot-rank .heat{
+  margin-left:auto;font-size:11.5px;color:var(--sub);flex-shrink:0;
+}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:9px;}
+.tag-cloud a{
+  padding:6px 14px;border-radius:99px;
+  background:var(--card2);border:1px solid var(--line);
+  font-size:13px;color:var(--sub);transition:.2s;
+}
+.tag-cloud a:hover{color:var(--hot);border-color:var(--hot);}
+.tag-cloud a.big{font-size:14.5px;color:var(--txt);font-weight:600;}
+
+/* 订阅卡 */
+.sub-card{
+  background:linear-gradient(150deg,#2b1420,#1a1a24);
+  border:1px solid rgba(255,77,109,.3);
+  border-radius:16px;
+  padding:26px;
+  margin-bottom:24px;
+}
+.sub-card h4{font-size:17px;font-weight:800;margin-bottom:9px;}
+.sub-card p{font-size:13.5px;color:var(--sub);margin-bottom:18px;}
+.sub-form{display:flex;flex-direction:column;gap:10px;}
+.sub-form input{
+  padding:12px 15px;border-radius:10px;
+  background:var(--bg);border:1px solid var(--line);
+  color:var(--txt);font-size:14px;
+  outline:none;transition:.2s;
+  font-family:inherit;
+}
+.sub-form input:focus{border-color:var(--hot);}
+.sub-form button{
+  padding:12px;border-radius:10px;
+  background:linear-gradient(135deg,var(--hot),var(--hot2));
+  color:#fff;font-weight:700;font-size:14.5px;
+  border:none;cursor:pointer;transition:.22s;
+}
+.sub-form button:hover{opacity:.9;transform:translateY(-1px);}
+.sub-note{font-size:11.5px;color:var(--sub);margin-top:10px;opacity:.8;}
+
+/* ===== 数字看板 ===== */
+.dashboard{
+  background:linear-gradient(150deg,var(--bg2),var(--bg));
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.dash-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.dash-item{
+  text-align:center;
+  padding:28px 16px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  transition:.3s;
+}
+.dash-item:hover{border-color:rgba(255,77,109,.4);transform:translateY(-4px);}
+.dash-item b{
+  font-size:clamp(28px,4vw,40px);font-weight:900;
+  background:linear-gradient(120deg,var(--hot),var(--hot2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  display:block;line-height:1.2;margin-bottom:8px;
+}
+.dash-item span{font-size:13.5px;color:var(--sub);}
+
+/* ===== 视频/多媒体区 ===== */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.video-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  transition:.3s;cursor:pointer;
+}
+.video-card:hover{transform:translateY(-5px);border-color:rgba(77,210,255,.4);}
+.video-thumb{
+  height:160px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#1a2530,#0f1a24);
+}
+.video-thumb::after{
+  content:"";
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 10px,transparent 10px 20px);
+}
+.play-btn{
+  width:54px;height:54px;border-radius:50%;
+  background:rgba(255,255,255,.14);
+  backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.28);
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;transition:.25s;
+}
+.video-card:hover .play-btn{background:var(--hot);border-color:var(--hot);transform:scale(1.08);}
+.play-btn svg{margin-left:3px;}
+.video-dur{
+  position:absolute;bottom:10px;right:10px;
+  background:rgba(0,0,0,.7);padding:2px 8px;border-radius:5px;
+  font-size:11.5px;color:#fff;z-index:2;
+}
+.video-info{padding:16px 18px;}
+.video-info h4{font-size:15.5px;font-weight:800;line-height:1.45;margin-bottom:8px;}
+.video-card:hover .video-info h4{color:var(--cyan);}
+.video-info .vm{font-size:12px;color:var(--sub);display:flex;justify-content:space-between;}
+
+/* ===== 社区 ===== */
+.community{
+  background:linear-gradient(180deg,var(--bg2),var(--bg));
+}
+.comm-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.comm-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:24px;
+  transition:.28s;
+}
+.comm-card:hover{border-color:rgba(255,200,87,.4);transform:translateY(-4px);}
+.comm-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.comm-ava{
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#fff;font-size:15px;flex-shrink:0;
+}
+.comm-ava.a1{background:linear-gradient(135deg,#ff3860,#ff8a3d);}
+.comm-ava.a2{background:linear-gradient(135deg,#4dd2ff,#3860ff);}
+.comm-ava.a3{background:linear-gradient(135deg,#ffc857,#ff8a3d);}
+.comm-name{font-weight:800;font-size:14.5px;}
+.comm-role{font-size:12px;color:var(--sub);}
+.comm-card p{font-size:14px;color:#c8c8d8;line-height:1.75;margin-bottom:16px;}
+.comm-foot{display:flex;gap:18px;font-size:12.5px;color:var(--sub);}
+.comm-foot span{display:flex;align-items:center;gap:5px;}
+
+/* ===== FAQ / 说明 ===== */
+.faq-item{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin-bottom:14px;
+  overflow:hidden;
+  transition:.25s;
+}
+.faq-item:hover{border-color:rgba(255,77,109,.35);}
+.faq-q{
+  padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;font-weight:700;font-size:15.5px;gap:16px;
+}
+.faq-q .ico{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--card2);display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--sub);flex-shrink:0;transition:.25s;
+}
+.faq-item.open .faq-q .ico{background:var(--hot);color:#fff;transform:rotate(45deg);}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .35s ease;
+}
+.faq-a p{padding:0 24px 22px;font-size:14px;color:var(--sub);line-height:1.8;}
+.faq-item.open .faq-a{max-height:320px;}
+
+/* ===== CTA ===== */
+.cta{
+  text-align:center;
+  padding:80px 22px;
+  position:relative;
+  overflow:hidden;
+}
+.cta::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(255,77,109,.16),transparent 65%);
+}
+.cta-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
+.cta h2{
+  font-size:clamp(28px,4vw,42px);font-weight:900;margin-bottom:18px;letter-spacing:-.5px;
+}
+.cta h2 em{
+  font-style:normal;
+  background:linear-gradient(90deg,var(--hot),var(--hot2),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cta p{color:var(--sub);font-size:16px;margin-bottom:34px;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+/* ===== footer ===== */
+footer{
+  background:#0a0a0f;
+  border-top:1px solid var(--line);
+  padding:56px 22px 30px;
+}
+.foot-grid{
+  max-width:1240px;margin:0 auto;
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:40px;
+  padding-bottom:40px;
+  border-bottom:1px solid var(--line);
+}
+.foot-brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;margin-bottom:16px;}
+.foot-desc{font-size:13.5px;color:var(--sub);line-height:1.85;max-width:320px;margin-bottom:20px;}
+.foot-social{display:flex;gap:10px;}
+.foot-social a{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--card);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--sub);transition:.22s;
+}
+.foot-social a:hover{color:#fff;background:var(--hot);border-color:var(--hot);transform:translateY(-2px);}
+.foot-col h5{font-size:14px;font-weight:800;margin-bottom:18px;letter-spacing:.5px;}
+.foot-col li{margin-bottom:11px;}
+.foot-col a{font-size:13.5px;color:var(--sub);transition:.2s;}
+.foot-col a:hover{color:var(--hot);}
+.foot-bottom{
+  max-width:1240px;margin:0 auto;
+  padding-top:26px;
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--sub);
+}
+.foot-bottom .links{display:flex;gap:20px;flex-wrap:wrap;}
+.foot-bottom a:hover{color:var(--hot);}
+
+/* ===== 回到顶部 ===== */
+.top-btn{
+  position:fixed;bottom:30px;right:30px;
+  width:46px;height:46px;border-radius:12px;
+  background:linear-gradient(135deg,var(--hot),var(--hot2));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;cursor:pointer;z-index:99;
+  opacity:0;visibility:hidden;transform:translateY(14px);
+  transition:.3s;box-shadow:0 8px 24px rgba(255,77,109,.4);
+}
+.top-btn.show{opacity:1;visibility:visible;transform:translateY(0);}
+.top-btn:hover{transform:translateY(-3px);}
+
+/* ===== 响应式 ===== */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:44px;}
+  .hero-card{transform:none;max-width:520px;}
+  .grid-news{grid-template-columns:repeat(2,1fr);}
+  .feature-grid{grid-template-columns:1fr;}
+  .split{grid-template-columns:1fr;}
+  .dash-grid{grid-template-columns:repeat(2,1fr);}
+  .video-grid{grid-template-columns:repeat(2,1fr);}
+  .comm-grid{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .nav-inner{height:58px;}
+  section{padding:48px 16px;}
+  .hero{padding:48px 16px 40px;}
+  .grid-news{grid-template-columns:1fr;}
+  .video-grid{grid-template-columns:1fr;}
+  .dash-grid{grid-template-columns:1fr 1fr;gap:14px;}
+  .list-item{gap:14px;}
+  .li-thumb{width:104px;height:74px;}
+  .foot-grid{grid-template-columns:1fr;gap:30px;}
+  .hero-stats{gap:26px;}
+  .top-btn{right:16px;bottom:20px;}
+  .btn-hot{display:none;}
+  .feature-main{padding:24px;min-height:300px;}
+  .feature-main h3{font-size:21px;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 顶部滚动公告 -->
+<div class="ticker-bar">
+  <div class="ticker-label">爆料速递</div>
+  <div class="ticker-track">
+    <span>某顶流深夜现身机场，随行团队异常低调，网友热议不断</span>
+    <span>知名品牌发布会现场突发状况，工作人员紧急处理</span>
+    <span>新剧路透照流出，演员造型引发网友两极讨论</span>
+    <span>社区爆料：某综艺录制现场气氛紧张，嘉宾互动成焦点</span>
+    <span>音乐节阵容官宣，压轴名单意外反转引发猜测</span>
+    <span>某顶流深夜现身机场，随行团队异常低调，网友热议不断</span>
+    <span>知名品牌发布会现场突发状况，工作人员紧急处理</span>
+    <span>新剧路透照流出，演员造型引发网友两极讨论</span>
+    <span>社区爆料：某综艺录制现场气氛紧张，嘉宾互动成焦点</span>
+    <span>音乐节阵容官宣，压轴名单意外反转引发猜测</span>
+  </div>
+</div>
+
+<!-- 导航 -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">911</div>
+      <div class="logo-text">911爆料八卦网</div>
+    </a>
+    <div class="nav-links">
+      <a href="#hot" class="active">首页</a>
+      <a href="#news">娱乐爆料</a>
+      <a href="#feature">深度专题</a>
+      <a href="#video">视频热榜</a>
+      <a href="#community">社区讨论</a>
+      <a href="#faq">爆料须知</a>
+    </div>
+    <div class="nav-right">
+      <div class="search-btn" title="搜索">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </div>
+      <button class="btn-hot">我要爆料</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="hot">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><span class="dot"></span>全网热闻 · 实时更新 · 深度追踪</div>
+      <h1>911爆料八卦网<br><span class="hl">爆料第一线</span></h1>
+      <p class="hero-desc">聚焦娱乐圈风云、社会热点与网络热议，911爆料八卦网以真实、快速、深度为核心，汇集海量网友爆料线索，为你还原事件全貌，看懂每一场舆论风波的来龙去脉。</p>
+      <div class="hero-actions">
+        <button class="btn-primary">立即围观热点</button>
+        <button class="btn-ghost">提交爆料线索</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>12.8万+</b><span>累计爆料线索</span></div>
+        <div class="stat"><b>2,460万</b><span>月均阅读人次</span></div>
+        <div class="stat"><b>186个</b><span>热门话题追踪</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-head">
+        <div class="t"><span class="live-badge">LIVE</span>实时热议榜</div>
+        <div class="time" id="clock">刚刚更新</div>
+      </div>
+      <ul class="hero-list">
+        <li><span class="rank">1</span><span class="txt"><span class="tag-mini">热</span>顶流艺人深夜行程曝光，粉丝与路人观点激烈碰撞</span></li>
+        <li><span class="rank">2</span><span class="txt"><span class="tag-mini">爆</span>新剧片场路透流出，主演造型引发全网造型师解析</span></li>
+        <li><span class="rank">3</span><span class="txt"><span class="tag-mini">议</span>音乐节压轴阵容官宣，评论区十分钟破万条讨论</span></li>
+        <li><span class="rank">4</span><span class="txt">品牌代言风波持续发酵，官方账号评论区画风突变</span></li>
+        <li><span class="rank">5</span><span class="txt">综艺录制现场互动细节被扒，网友逐帧分析嘉宾关系</span></li>
+        <li><span class="rank">6</span><span class="txt">老牌组合重聚传闻再起，工作室回应耐人寻味</span></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- 热门爆料网格 -->
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title">今日爆料精选</h2>
+        <p class="sec-sub">911爆料八卦网编辑团队每日筛选高热度线索，带来多角度、可追溯的热点解读。</p>
+      </div>
+      <a href="#" class="sec-more">查看全部 →</a>
+    </div>
+    <div class="tabs">
+      <div class="tab active">全部</div>
+      <div class="tab">娱乐八卦</div>
+      <div class="tab">明星动态</div>
+      <div class="tab">影视综</div>
+      <div class="tab">社会热点</div>
+      <div class="tab">网络热议</div>
+    </div>
+    <div class="grid-news">
+      <article class="news-card">
+        <div class="news-cover c1"><span class="badge-type">娱乐八卦</span><span class="badge-hot">HOT</span>爆料</div>
+        <div class="news-body">
+          <h3>顶流艺人深夜行程被拍，随行团队低调引猜测</h3>
+          <p>有网友爆料在某机场偶遇顶流艺人，随行团队刻意低调，全程未与粉丝互动，相关路透图迅速在社区扩散，讨论量持续攀升。</p>
+          <div class="news-meta">
+            <span class="author"><span class="avatar">爆</span>爆料小分队</span>
+            <span class="views">🔥 8.6万</span>
+          </div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="news-cover c2"><span class="badge-type">影视综</span><span class="badge-hot">NEW</span>热剧</div>
+        <div class="news-body">
+          <h3>新剧片场路透流出，主演造型引发两极讨论</h3>
+          <p>一组新剧片场路透照在网络流传，主演造型细节被网友逐帧分析，造型师评论区涌入了大量讨论，相关话题迅速登上热议榜。</p>
+          <div class="news-meta">
+            <span class="author"><span class="avatar">剧</span>追剧观察员</span>
+            <span class="views">🔥 6.2万</span>
+          </div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="news-cover c3"><span class="badge-type">明星动态</span><span class="badge-hot">HOT</span>动态</div>
+        <div class="news-body">
+          <h3>老牌组合重聚传闻再起，工作室回应耐人寻味</h3>
+          <p>沉寂多年的老牌组合被曝将有新动作，成员社交账号互动频繁，工作室回应既未承认也未否认，粉丝自发整理时间线线索。</p>
+          <div class="news-meta">
+            <span class="author"><span class="avatar">乐</span>音乐情报站</span>
+            <span class="views">🔥 5.8万</span>
+          </div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="news-cover c4"><span class="badge-type">网络热议</span><span class="badge-hot">议</span>热议</div>
+        <div class="news-body">
+          <h3>品牌代言风波持续发酵，官方评论区画风突变</h3>
+          <p>某品牌官宣新代言人后，评论区出现大量不同声音，相关讨论从品牌选择延伸到行业趋势，911爆料八卦网整理了多方观点。</p>
+          <div class="news-meta">
+            <span class="author"><span class="avatar">商</span>财经八卦组</span>
+            <span class="views">🔥 5.1万</span>
+          </div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="news-cover c5"><span class="badge-type">社会热点</span><span class="badge-hot">新</span>现场</div>
+        <div class="news-body">
+          <h3>音乐节压轴阵容官宣，评论区十分钟破万条</h3>
+          <p>年度音乐节公布完整阵容，压轴名单与此前爆料存在出入，网友迅速展开讨论，主办方随后发布补充说明回应关注。</p>
+          <div class="news-meta">
+            <span class="author"><span class="avatar">现</span>现场记者</span>
+            <span class="views">🔥 4.7万</span>
+          </div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="news-cover c6"><span class="badge-type">娱乐八卦</span><span class="badge-hot">爆</span>细节</div>
+        <div class="news-body">
+          <h3>综艺录制现场互动细节被扒，网友逐帧分析</h3>
+          <p>一档热门综艺最新一期录制结束后，现场观众爆料称嘉宾互动出现微妙变化，相关片段被反复回放，网友展开多角度解读。</p>
+          <div class="news-meta">
+            <span class="author"><span class="avatar">综</span>综艺观察室</span>
+            <span class="views">🔥 4.3万</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 置顶专题 -->
+<section id="feature" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title">深度专题追踪</h2>
+        <p class="sec-sub">不满足于碎片化信息，911爆料八卦网以专题方式梳理事件时间线与多方信源。</p>
+      </div>
+      <a href="#" class="sec-more">进入专题库 →</a>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-main">
+        <div class="fm-icon">911</div>
+        <h3>舆论风暴眼：一场爆料如何演变成全网热议</h3>
+        <p>从一条匿名爆料帖开始，到百万级讨论的公共话题，911爆料八卦网梳理了完整传播链路，采访多位信源，还原事件每一步的转折与细节。</p>
+        <div class="fm-meta">
+          <span>📌 深度专题</span>
+          <span>🕐 更新于今日 09:42</span>
+          <span>👁 12.6万阅读</span>
+        </div>
+      </div>
+      <div class="feature-side">
+        <div class="feature-mini">
+          <div class="fm-cat">明星动态 · 专题</div>
+          <h4>工作行程与私人边界的讨论为何再度升温</h4>
+          <div class="fm-time">3小时前 · 4.2万阅读</div>
+        </div>
+        <div class="feature-mini">
+          <div class="fm-cat">影视综 · 专题</div>
+          <h4>路透文化盛行下，剧组保密与观众期待的博弈</h4>
+          <div class="fm-time">5小时前 · 3.8万阅读</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 数字看板 -->
+<section class="dashboard">
+  <div class="wrap">
+    <div class="dash-grid">
+      <div class="dash-item"><b>12.8万</b><span>累计爆料线索</span></div>
+      <div class="dash-item"><b>2460万</b><span>月均阅读人次</span></div>
+      <div class="dash-item"><b>186</b><span>追踪热门话题</span></div>
+      <div class="dash-item"><b>9.2万</b><span>社区活跃用户</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 最新动态列表 + 侧栏 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title">最新爆料动态</h2>
+        <p class="sec-sub">按时间顺序更新的爆料流，每一条都附带信源说明与核实状态。</p>
+      </div>
+    </div>
+    <div class="split">
+      <div>
+        <div class="list-item">
+          <div class="li-thumb t1">爆</div>
+          <div class="li-body">
+            <h3 class="li-title">网友爆料：某演员新片杀青现场气氛热烈，剧组低调聚餐</h3>
+            <p class="li-desc">有现场工作人员透露，该片拍摄周期比预期延长两周，杀青当晚剧组举行小型聚餐，主演全程未离场，整体氛围轻松。</p>
+            <div class="li-meta"><span class="tag">明星动态</span><span>2小时前</span><span>👁 3.1万</span></div>
+          </div>
+        </div>
+        <div class="list-item">
+          <div class="li-thumb t2">热</div>
+          <div class="li-body">
+            <h3 class="li-title">音乐节票务系统短暂卡顿，主办方紧急发布说明</h3>
+            <p class="li-desc">开票十分钟内大量用户反映页面加载异常，主办方随后回应称因访问量超预期导致，已完成扩容并补充少量回流票。</p>
+            <div class="li-meta"><span class="tag">社会热点</span><span>4小时前</span><span>👁 2.7万</span></div>
+          </div>
+        </div>
+        <div class="list-item">
+          <div class="li-thumb t3">综</div>
+          <div class="li-body">
+            <h3 class="li-title">综艺最新一期剪辑顺序引争议，节目组暂未回应</h3>
+            <p class="li-desc">有观众发现正片剪辑顺序与预告存在差异，部分互动片段被调整，相关讨论在社区持续升温，节目组目前尚未给出解释。</p>
+            <div class="li-meta"><span class="tag">影视综</span><span>6小时前</span><span>👁 2.4万</span></div>
+          </div>
+        </div>
+        <div class="list-item">
+          <div class="li-thumb t4">议</div>
+          <div class="li-body">
+            <h3 class="li-title">老牌歌手巡演城市名单曝光，粉丝自发整理场馆信息</h3>
+            <p class="li-desc">一份疑似巡演批文的截图在网络流传，涉及多个城市场馆，粉丝迅速整理出可能的时间窗口，相关话题阅读量快速上涨。</p>
+            <div class="li-meta"><span class="tag">娱乐八卦</span><span>8小时前</span><span>👁 2.1万</span></div>
+          </div>
+        </div>
+        <div class="list-item">
+          <div class="li-thumb t1">剧</div>
+          <div class="li-body">
+            <h3 class="li-title">新剧定档消息尚未官宣，预约页面已悄然上线</h3>
+            <p class="li-desc">细心的网友发现某平台剧集预约页面提前出现，虽然官方尚未发布定档海报，但页面信息已透露大致播出时间段。</p>
+            <div class="li-meta"><span class="tag">影视综</span><span>10小时前</span><span>👁 1.9万</span></div>
+          </div>
+        </div>
+      </div>
+      <aside>
+        <div class="side-card">
+          <div class="side-title">🔥 全站热榜<span class="num">实时</span></div>
+          <ul class="hot-rank">
+            <li><span class="r">1</span><span>顶流深夜行程曝光</span><span class="heat">8.6万</span></li>
+            <li><span class="r">2</span><span>新剧路透造型讨论</span><span class="heat">6.2万</span></li>
+            <li><span class="r">3</span><span>老牌组合重聚传闻</span><span class="heat">5.8万</span></li>
+            <li><span class="r">4</span><span>品牌代言评论区风波</span><span class="heat">5.1万</span></li>
+            <li><span class="r">5</span><span>音乐节压轴阵容反转</span><span class="heat">4.7万</span></li>
+            <li><span class="r">6</span><span>综艺互动细节逐帧分析</span><span class="heat">4.3万</span></li>
+            <li><span class="r">7</span><span>巡演城市名单疑似流出</span><span class="heat">3.9万</span></li>
+          </ul>
+        </div>
+        <div class="sub-card">
+          <h4>订阅爆料速递</h4>
+          <p>每天一封邮件，汇总911爆料八卦网当日最值得关注的爆料与解读。</p>
+          <div class="sub-form">
+            <input type="email" placeholder="输入你的邮箱地址" aria-label="邮箱">
+            <button>免费订阅</button>
+          </div>
+          <div class="sub-note">我们尊重你的隐私，随时可退订。</div>
+        </div>
+        <div class="side-card">
+          <div class="side-title">🏷 热门标签</div>
+          <div class="tag-cloud">
+            <a href="#" class="big">娱乐八卦</a>
+            <a href="#">明星动态</a>
+            <a href="#">影视综</a>
+            <a href="#">社会热点</a>
+            <a href="#" class="big">网络热议</a>
+            <a href="#">爆料线索</a>
+            <a href="#">社区讨论</a>
+            <a href="#">深度追踪</a>
+            <a href="#">视频热榜</a>
+            <a href="#">舆论观察</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 视频热榜 -->
+<section id="video" class="dashboard">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title">视频爆料热榜</h2>
+        <p class="sec-sub">用视频还原现场，911爆料八卦网视频团队带来多视角的热点拆解。</p>
+      </div>
+      <a href="#" class="sec-more">更多视频 →</a>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+          <span class="video-dur">04:26</span>
+        </div>
+        <div class="video-info">
+          <h4>三分钟梳理：爆料帖如何一步步登上热搜</h4>
+          <div class="vm"><span>911爆料八卦网</span><span>12.3万播放</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+          <span class="video-dur">06:12</span>
+        </div>
+        <div class="video-info">
+          <h4>现场还原：音乐节阵容官宣背后的那些细节</h4>
+          <div class="vm"><span>现场记者组</span><span>9.8万播放</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+          <span class="video-dur">03:48</span>
+        </div>
+        <div class="video-info">
+          <h4>逐帧解析：路透照里被忽略的造型细节</h4>
+          <div class="vm"><span>追剧观察员</span><span>8.4万播放</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 社区讨论 -->
+<section id="community" class="community">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title">社区正在讨论</h2>
+        <p class="sec-sub">真实用户的声音，是911爆料八卦网最有价值的信源之一。</p>
+      </div>
+    </div>
+    <div class="comm-grid">
+      <div class="comm-card">
+        <div class="comm-head">
+          <div class="comm-ava a1">吃</div>
+          <div>
+            <div class="comm-name">吃瓜前线小陈</div>
+            <div class="comm-role">社区活跃用户 · 爆料达人</div>
+          </div>
+        </div>
+        <p>从昨晚开始一直在刷这个话题，个人感觉很多细节被过度解读了。作为老粉，还是希望大家理性吃瓜，把注意力放回作品本身。</p>
+        <div class="comm-foot"><span>👍 2.4万</span><span>💬 1,632</span><span>🔁 890</span></div>
+      </div>
+      <div class="comm-card">
+        <div class="comm-head">
+          <div class="comm-ava a2">观</div>
+          <div>
+            <div class="comm-name">舆论观察员老林</div>
+            <div class="comm-role">专栏作者 · 深度分析</div>
+          </div>
+        </div>
+        <p>这次传播路径很典型：匿名爆料 → 截图扩散 → 话题聚合 → 官方回应，每一步的时间差都值得研究，911爆料八卦网的整理挺清晰。</p>
+        <div class="comm-foot"><span>👍 1.9万</span><span>💬 1,208</span><span>🔁 756</span></div>
+      </div>
+      <div class="comm-card">
+        <div class="comm-head">
+          <div class="comm-ava a3">追</div>
+          <div>
+            <div class="comm-name">追剧永不眠</div>
+            <div class="comm-role">影视综讨论版主</div>
+          </div>
+        </div>
+        <p>路透照确实好看，但剧组保密工作也很重要。听说这次剧组已经加强了现场管理，希望成片能对得起大家的期待。</p>
+        <div class="comm-foot"><span>👍 1.6万</span><span>💬 986</span><span>🔁 612</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title">爆料须知与常见问题</h2>
+        <p class="sec-sub">在911爆料八卦网，每一条线索都值得被认真对待，但我们也坚持真实与边界。</p>
+      </div>
+    </div>
+    <div class="faq-item open">
+      <div class="faq-q">怎么向911爆料八卦网提交线索？<span class="ico">+</span></div>
+      <div class="faq-a"><p>你可以通过页面顶部的「我要爆料」入口提交，支持文字、图片与视频附件。我们会对线索进行初步核实，并对爆料人信息严格保密。请尽量提供时间、地点与可验证的细节描述。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">平台如何判断爆料是否真实？<span class="ico">+</span></div>
+      <div class="faq-a"><p>911爆料八卦网采用「多信源交叉 + 编辑复核 + 分级标注」的流程。未经完全核实的内容会标注「待核实」，已核实的会附上说明。我们不会将传闻包装成事实。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">哪些内容不会被采纳或发布？<span class="ico">+</span></div>
+      <div class="faq-a"><p>涉及个人隐私、未成年人、未公开的私人住址、恶意编造与人身攻击的内容一律不发布。我们倡导理性讨论，反对网络暴力与造谣传谣。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">社区讨论有什么规范？<span class="ico">+</span></div>
+      <div class="faq-a"><p>请就事论事，尊重不同观点。禁止人身攻击、地域歧视与恶意刷屏。对于严重违规账号，平台会视情况采取限制发言等措施。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2>每一个真相，都从<em>一条线索</em>开始</h2>
+    <p>如果你也有值得被看见的爆料，欢迎加入911爆料八卦网的社区，让我们一起把热点看得更清楚。</p>
+    <div class="cta-btns">
+      <button class="btn-primary">提交我的爆料</button>
+      <button class="btn-ghost">加入社区讨论</button>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand"><div class="logo-mark" style="width:34px;height:34px;font-size:13px;">911</div>911爆料八卦网</div>
+      <p class="foot-desc">911爆料八卦网是一个面向全网热点与爆料线索的信息平台，我们坚持真实、快速、可追溯，为读者提供有温度、有深度的八卦与热闻解读。</p>
+      <div class="foot-social">
+        <a href="#" title="微博">微</a>
+        <a href="#" title="微信">信</a>
+        <a href="#" title="抖音">抖</a>
+        <a href="#" title="小红书">红</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>内容频道</h5>
+      <ul>
+        <li><a href="#">娱乐八卦</a></li>
+        <li><a href="#">明星动态</a></li>
+        <li><a href="#">影视综</a></li>
+        <li><a href="#">社会热点</a></li>
+        <li><a href="#">网络热议</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>关于平台</h5>
+      <ul>
+        <li><a href="#">关于我们</a></li>
+        <li><a href="#">团队介绍</a></li>
+        <li><a href="#">爆料流程</a></li>
+        <li><a href="#">内容规范</a></li>
+        <li><a href="#">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>帮助与条款</h5>
+      <ul>
+        <li><a href="#">用户协议</a></li>
+        <li><a href="#">隐私政策</a></li>
+        <li><a href="#">社区公约</a></li>
+        <li><a href="#">侵权投诉</a></li>
+        <li><a href="#">意见反馈</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2025 911爆料八卦网 · 本站内容仅供信息交流与讨论，请理性看待爆料。</div>
+    <div class="links">
+      <a href="#">备案信息</a>
+      <a href="#">举报通道</a>
+      <a href="#">网站地图</a>
+    </div>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<div class="top-btn" id="topBtn">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</div>
+
+<script>
+(function(){
+  // 时钟更新
+  function updateClock(){
+    var d = new Date();
+    var h = d.getHours(), m = d.getMinutes();
+    var el = document.getElementById('clock');
+    if(el){ el.textContent = '更新于 ' + (h<10?'0'+h:h) + ':' + (m<10?'0'+m:m); }
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  // 分类 Tab 切换
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+
+  // FAQ 折叠
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    if(!q) return;
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(x){ x.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+
+  // 导航高亮
+  var navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.forEach(function(x){ x.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+
+  // 回到顶部
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 500){
+      topBtn.classList.add('show');
+    } else {
+      topBtn.classList.remove('show');
+    }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // 订阅模拟
+  var subBtn = document.querySelector('.sub-form button');
+  if(subBtn){
+    subBtn.addEventListener('click', function(){
+      var input = document.querySelector('.sub-form input');
+      if(input && input.value && input.value.indexOf('@') > -1){
+        subBtn.textContent = '订阅成功 ✓';
+        subBtn.style.background = 'linear-gradient(135deg,#2ecc71,#27ae60)';
+        input.value = '';
+        setTimeout(function(){
+          subBtn.textContent = '免费订阅';
+          subBtn.style.background = '';
+        }, 2600);
+      } else {
+        if(input){
+          input.style.borderColor = '#ff3860';
+          setTimeout(function(){ input.style.borderColor = ''; }, 1400);
+        }
+      }
+    });
+  }
+
+  // 数字滚动动画
+  function animateNumber(el, target, suffix){
+    var start = 0;
+    var duration = 1400;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var p = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.floor(eased * target);
+      el.textContent = val + (suffix || '');
+      if(p < 1){ requestAnimationFrame(step); }
+      else { el.textContent = target + (suffix || ''); }
+    }
+    requestAnimationFrame(step);
+  }
+  var dashNums = document.querySelectorAll('.dash-item b');
+  var dashDone = false;
+  function checkDash(){
+    if(dashDone) return;
+    var dash = document.querySelector('.dashboard');
+    if(!dash) return;
+    var rect = dash.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 80){
+      dashDone = true;
+      dashNums.forEach(function(el){
+        var txt = el.textContent;
+        if(txt.indexOf('12.8') === 0){ animateNumber(el, 12.8, '万'); }
+        else if(txt.indexOf('2460') === 0){ animateNumber(el, 2460, '万'); }
+        else if(txt.indexOf('186') === 0){ animateNumber(el, 186, ''); }
+        else if(txt.indexOf('9.2') === 0){ animateNumber(el, 9.2, '万'); }
+      });
+    }
+  }
+  window.addEventListener('scroll', checkDash);
+  setTimeout(checkDash, 600);
+
+  // 卡片淡入
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.08});
+  document.querySelectorAll('.news-card, .comm-card, .video-card, .feature-mini, .list-item, .dash-item').forEach(function(el){
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity .55s ease, transform .55s ease';
+    obs.observe(el);
+  });
+})();
+</script>
+</body>
+  </html>
